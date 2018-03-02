@@ -17,8 +17,8 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <NavLink 
-                  to="/"
+                <NavLink
+                  to="/posts"
                   exact
                   activeClassName="my-active"
                   activeStyle={{
@@ -30,11 +30,11 @@ class Blog extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink 
+                <NavLink
                   to={{
                     pathname: '/new-post', // absolute path: '/new' = 'new' this.props.match.url + /new'
                     hash: '#submit',
-                    search: '?quick-submit=true&id=111'
+                    search: '?quick-submit=true&id=111',
                   }}
                   exact
                 >
@@ -44,10 +44,10 @@ class Blog extends Component {
             </ul>
           </nav>
         </header>
-        <Route path="/" exact component={Posts}/>
         <Switch>
-          <Route path="/new-post" component={NewPosts}/>
-          <Route path="/:id" exact component={FullPost}/>
+          <Route path="/new-post" component={NewPosts} />
+          <Route path="/posts" component={Posts} />
+          {/* <Route path="/:id" exact component={FullPost}/> */}
           {/* <Route path="/" render={() => <h1>Home</h1>} /> */}
         </Switch>
       </div>
