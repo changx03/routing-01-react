@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import { Route, NavLink, withRouter, Switch, Redirect } from 'react-router-dom';
 import Posts from '../Posts';
 import NewPosts from '../../components/NewPost/NewPost';
-import FullPost from '../../components/FullPost/FullPost';
+// import FullPost from '../../components/FullPost/FullPost';
+import NotFoundPage from '../../components/NotFoundPage';
 import './Blog.css';
 
 class Blog extends Component {
+  state = {
+    auth: false,
+  };
+
   componentDidMount() {
     console.log('[Blog]', this.props);
   }
@@ -45,9 +50,10 @@ class Blog extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/new-post" component={NewPosts} />
+          {this.state.auth && <Route path="/new-post" component={NewPosts} />}
           <Route path="/posts" component={Posts} />
-          <Redirect from="/" to="/posts" />
+          <Route render={NotFoundPage} />
+          {/* <Redirect from="/" to="/posts" /> */}
           {/* <Route path="/:id" exact component={FullPost}/> */}
           {/* <Route path="/" render={() => <h1>Home</h1>} /> */}
         </Switch>
