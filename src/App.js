@@ -5,7 +5,10 @@ import Blog from './containers/Blog/Blog';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      // always load index.html file, even in 404
+      // example.com/my-app
+      // <BrowserRouter basename="/my-app">
+      <BrowserRouter basename="/">
       <div className="App">
         <Blog />
       </div>
