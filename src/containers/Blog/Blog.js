@@ -7,6 +7,7 @@ import NotFoundPage from '../../components/NotFoundPage';
 import asyncComponent from '../../components/asyncComponent';
 import './Blog.css';
 
+// lazy loading component
 const AsyncNewPost = asyncComponent(() => {
   return import('../../components/NewPost/NewPost');
 });
